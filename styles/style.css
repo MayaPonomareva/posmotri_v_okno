@@ -40,6 +40,8 @@ ol {
   list-style: none;
 }
 
+/* Мой код */
+
 .content {
   display: flex;
   flex-direction: row;
@@ -91,6 +93,7 @@ ol {
   appearance: none;
   gap: 5px;
   cursor: pointer;
+  font-family: 'Fira Sans Condensed', sans-serif;
  }
 
 /* Начало фокусы лейбла */
@@ -198,7 +201,6 @@ ol {
 }
 
 .content__details {
-  font-family: 'Oswald', sans-serif;
   display: flex;
   flex-direction: column;
   gap: 18px;
@@ -207,6 +209,7 @@ ol {
 }
 
 .title {
+  font-family: 'Oswald', sans-serif;
   font-size: 75px;
   line-height: 70.5px;
   font-weight: 700;
