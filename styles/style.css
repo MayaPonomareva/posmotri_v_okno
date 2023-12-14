@@ -42,16 +42,6 @@ ol {
 
 /* Мой код */
 
-.visually-hidden {
-  position: absolute;
-  inline-size: 1px;
-  block-size: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  white-space: nowrap;
-} 
-
 .content {
   display: flex;
   flex-direction: row;
@@ -63,9 +53,15 @@ ol {
 .result__video-container {
   position: relative;
   display: flex;
-  width: 100%;
+  width: 711px;
   height: 386px;
   margin-bottom: 16px;
+}
+
+.result__video {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 .search-form {
@@ -77,24 +73,42 @@ ol {
 
 .search-form__fieldset {
   border: none;
-  min-width: 225px;
+  width: fit-content;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .search-form__fieldset-title {
   display: flex;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
+  font-size: 17.5px;
   line-height: normal;
   padding-bottom: 5px;
 }
 
 .search-form__label {
- width: fit-content;
- display: flex;
- flex-direction: row;
- appearance: none;
+  align-items: center;
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  appearance: none;
+  gap: 5px;
+  cursor: pointer;
+ }
+
+/* Начало фокусы лейбла */
+
+ .search-form__label:has(:focus-visible) {
+  outline: 1px solid #fff;
+  outline-offset: 1px;
 }
+
+.search-form__label:active(:has(:focus-visible)) {
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+  outline: none;
+}
+
+/* Конец фокусы лейбла */
 
 .search-form__textfield {
   font-family: 'Fira Sans Condensed', sans-serif;
@@ -104,19 +118,21 @@ ol {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  border-top: 1px solid #fff;
-  border-bottom: 1px solid #fff;
   min-width: 225px;
   appearance: none;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
 }
 
-.search-form__textfield:focus {
-  outline: none;
-}
-
-.search-form__label:has(:focus-visible) {
-  outline: 1px solid #fff;
-}
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+} 
 
 /* Чекбоксы */
 
@@ -124,18 +140,31 @@ ol {
   display: flex;
   width: fit-content;
   gap: 15px;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.search-form__label {
-  gap: 5px
+.search-form__checkbox-list>.search-form__label:hover {
+  text-decoration: underline;
 }
 
 .search-form__pseudo-checkbox {
   display: flex;
   width: 19px;
   height: 19px;
-  border: 1px solid #fff;
+  outline: 1px solid #fff;
+  justify-content: center;
+  align-items: center;
 }
+
+.search-form__checkbox[type="checkbox"]:checked + .search-form__pseudo-checkbox::before {
+  content: '';
+  width: 15px;
+  height: 15px;
+  background-color: #fff;
+}
+
+/* Конец Чекбоксы */
 
 .button {
   cursor: pointer;
@@ -147,12 +176,51 @@ ol {
   line-height: normal;
 }
 
+/* Состояния кнопок */
+
+.button:hover {
+  cursor: pointer;
+}
+
+.button:active {
+  background-color: #545050;;
+}
+
+.button:focus-visible {
+  outline: 1px solid #fff;
+}
+
+/* Конец состояния кнопок */
+
 .search-form__submit-button {
   width: 194px;
   height: 34px;
   font-size: 18px;
   font-weight: 700;
 }
+
+.content__details {
+  font-family: 'Oswald', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  height: 100%;
+  width: 100%;
+}
+
+.title {
+  font-size: 75px;
+  line-height: 70.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.content__accent {
+  color: #545050;
+
+}
+
+/* Карточки */
 
 .content__list{
   position: relative;
@@ -164,6 +232,11 @@ ol {
 
 .content__list-item:not(:last-child) {
   margin-bottom: 30px;
+}
+
+.content__card-link {
+  display: flex;
+  margin: 2px;
 }
 
 .content__video-card {
@@ -178,28 +251,14 @@ ol {
   height: 103px;
 }
 
-.content__details {
-  font-family: 'Oswald', sans-serif;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  height: 100%;
-  width: 100%;
-}
-
-.title {
-  font-size: 75px;
-  line-height: 70.5px;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-.content__accent {
-  color: #545050;
-}
-
 .content__card-link {
+  display: block;
   text-decoration: none;
+  display: block;
+}
+
+.content__card-link_current {
+  background-color: #545050;
 }
 
 .content__video-card-description-container {
@@ -219,9 +278,31 @@ ol {
 .content__video-card-description {
   font-size: 18px;
   font-weight: 400;
+  font-style: normal;
   line-height: 16.2px;
   color: #fff;
 }
+
+/* Состояния карточек */
+
+.content__card-link:active {
+  background-color: #545050;
+}
+
+.content__card-link:hover {
+  text-decoration: underline 1px solid #fff;
+}
+
+.content__card-link:focus {
+  outline: none;
+  border: none;
+}
+
+.content__card-link:focus-visible {
+  border: 1px solid #fff;
+}
+
+/* Конец состояния карточек */
 
 .more-button {
   width: 399px;
