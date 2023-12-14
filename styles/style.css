@@ -40,8 +40,6 @@ ol {
   list-style: none;
 }
 
-/* Мой код */
-
 .content {
   display: flex;
   flex-direction: row;
