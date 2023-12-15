@@ -266,7 +266,7 @@ ol {
 }
 
 .content__video-card-thumbnail {
-  object-fit: contain;
+  object-fit: cover;
   object-position: right;
   width: 194px; 
   height: 103px; 
