@@ -50,6 +50,7 @@ ol {
   gap: 30px;
 }
 
+
 .result__video-container {
   position: relative;
   display: flex;
@@ -69,14 +70,15 @@ ol {
   flex-direction: row;
   justify-content: space-between;
   align-items: end;
+  width: 711px;
 }
 
 .search-form__fieldset {
   border: none;
-  width: fit-content;
   font-weight: 400;
   font-style: normal;
   font-size: 18px;
+  min-height: 54px;
 }
 
 .search-form__fieldset-title {
@@ -99,29 +101,7 @@ ol {
   font-family: 'Fira Sans Condensed', sans-serif;
  }
 
-/* Начало фокусы лейбла */
-.search-form__textfield:focus {
-  outline: none;
-}
-
-.search-form__label:has(:focus-visible) {
-  outline: 1px solid #fff;
-  outline-offset: 1px;
-}
-.search-form__label:has(:focus-visible) {
-  outline: 1px solid #fff;
-  outline-offset: 1px;
-}
-
-.search-form__label:active {
-  outline: none;
-  border-left: 1px solid #fff;
-  border-right: 1px solid #fff;
-}
-
-/* Конец фокусы лейбла */
-
-.search-form__textfield {
+ .search-form__textfield {
   font-family: 'Fira Sans Condensed', sans-serif;
   background-color: #1b1919;
   border: none;
@@ -135,6 +115,34 @@ ol {
   border-bottom: 1px solid #fff;
   color: #fff;
 }
+
+/* Начало фокусы лейбла */
+
+.search-form__fieldset:active {
+  border: none;
+  outline: none;
+}
+
+.search-form__textfield:focus {
+  outline: none;
+}
+
+.search-form__textfield:active {
+  border-right: 1px solid #fff;
+  border-left: 1px solid #fff;
+  outline: none;
+}
+
+.search-form__label:has(.search-form__textfield:active) {
+  outline: none;
+}
+
+.search-form__label:has(:focus-visible) {
+  outline: 1px solid #fff;
+  outline-offset: 1px;
+}
+
+/* Конец фокусы лейбла */
 
 .visually-hidden {
   position: absolute;
@@ -152,9 +160,7 @@ ol {
   display: flex;
   width: fit-content;
   gap: 15px;
-  justify-content: space-between;
   align-items: center;
-  border: 2px solid;
   border-color: transparent;
 }
 
@@ -162,13 +168,21 @@ ol {
   text-decoration: underline;
 }
 
+.search-form__checkbox-list>.search-form__label:active {
+  border: none;
+}
+
 .search-form__pseudo-checkbox {
+  border-top: 1px solid transparent;
   display: flex;
+  box-sizing: border-box;
   width: 19px;
   height: 19px;
   outline: 1px solid #fff;
+  outline-offset: -1px;
   justify-content: center;
   align-items: center;
+  
 }
 
 .search-form__checkbox[type="checkbox"]:checked + .search-form__pseudo-checkbox::before {
@@ -181,7 +195,7 @@ ol {
 /* Конец Чекбоксы */
 
 .button {
-  margin: 2px;
+  padding: 2px;
   cursor: pointer;
   background-color: #1b1919;
   border: 1px solid #fff;
@@ -189,7 +203,8 @@ ol {
   font-family: 'Fira Sans Condensed', sans-serif;
   font-style: normal;
   line-height: normal;
-  font-size: 17.5px;
+  font-size: 18px;
+  font-weight: 700;
 }
 
 /* Состояния кнопок */
@@ -200,7 +215,8 @@ ol {
 }
 
 .button:active {
-  background-color: #545050;;
+  background-color: #545050;
+  text-decoration: none;
 }
 
 .button:focus-visible {
@@ -211,16 +227,19 @@ ol {
 /* Конец состояния кнопок */
 
 .search-form__submit-button {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
   width: 194px;
   min-height: 34px;
-  font-size: 18px;
   font-weight: 700;
 }
 
 .content__details {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 23px;
   height: 100%;
   width: 100%;
 }
@@ -256,6 +275,7 @@ ol {
   display: block;
   margin: 1px;
   text-decoration: none;
+  width: 98%;
 }
 
 .content__video-card {
@@ -263,13 +283,14 @@ ol {
   flex-direction: row;
   align-items: start;
   justify-content: space-between;
+  padding-bottom: 2px;
 }
 
 .content__video-card-thumbnail {
+  width: 193px;
+  height: 103px;
   object-fit: cover;
-  object-position: right;
-  width: 194px; 
-  height: 103px; 
+  object-position: center; 
 }
 
 .content__card-link_current {
@@ -283,10 +304,13 @@ ol {
 }
 
 .content__video-card-title {
+  padding-top: 4px;
+  padding-left: 2px;
   font-size: 30px;
   font-weight: 700;
   line-height: 30px;
   text-transform: uppercase;
+  font-style: normal;
   color: #fff;
   font-family: 'Oswald', sans-serif;
 }
@@ -325,7 +349,7 @@ ol {
 .more-button {
   width: 399px;
   min-height: 34px;
-  margin: 2px;
+  padding: 2px;
 }
 
 .more-button:focus-visible {
