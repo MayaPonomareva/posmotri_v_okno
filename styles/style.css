@@ -88,6 +88,7 @@ ol {
   font-size: 18px;
   font-weight: 400;
   font-style: normal;
+  font-family: 'Fira Sans Condensed', sans-serif;
 }
 
 .search-form__label {
@@ -277,7 +278,7 @@ ol {
   display: block;
   margin: 1px;
   text-decoration: none;
-  width: 98%;
+  width: 99%;
 }
 
 .content__video-card {
@@ -289,7 +290,7 @@ ol {
 }
 
 .content__video-card-thumbnail {
-  width: 193px;
+  width: 194px;
   height: 103px;
   object-fit: cover;
   object-position: center; 
